@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="/theme/css/elegant.prod.9e9d5ce754.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="/theme/css/custom.css" media="screen">
+
+        <link rel="dns-prefetch" href="//fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+
+        <meta name="author" content="CaiChunming" />
+
+        <meta name="description" content="使用pelican在Github上搭建个人博客，并能够使用markdown和Jupyter Notebook文件。
+" />
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="pelican，python，blogs, others, " />
+
+<meta property="og:title" content="使用pelican在GitHub搭建个人Jupyter Notebook和Markdown微博 "/>
+<meta property="og:url" content="/blogstruct" />
+<meta property="og:description" content="使用pelican在Github上搭建个人博客，并能够使用markdown和Jupyter Notebook文件。" />
+<meta property="og:site_name" content="CMCai&#39;s Blogs" />
+<meta property="og:article:author" content="CaiChunming" />
+<meta property="og:article:published_time" content="2018-10-08T00:00:00+08:00" />
+<meta name="twitter:title" content="使用pelican在GitHub搭建个人Jupyter Notebook和Markdown微博 ">
+<meta name="twitter:description" content="使用pelican在Github上搭建个人博客，并能够使用markdown和Jupyter Notebook文件。">
+<meta property="og:image" content="https://cmcai0104.github.iocontent/theme/images/apple-touch-icon-152x152.png" />
+<meta name="twitter:image" content="https://cmcai0104.github.iocontent/theme/images/apple-touch-icon-152x152.png" >
+
+        <title>使用pelican在GitHub搭建个人Jupyter Notebook和Markdown微博  · CMCai&#39;s Blogs
+</title>
+        <link rel="shortcut icon" href="/theme/images/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="/theme/images/apple-touch-icon-152x152.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/theme/images/apple-touch-icon.png"  type="image/png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="/theme/images/apple-touch-icon-57x57.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="/theme/images/apple-touch-icon-72x72.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="76x76" href="/theme/images/apple-touch-icon-76x76.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="/theme/images/apple-touch-icon-114x114.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="120x120" href="/theme/images/apple-touch-icon-120x120.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="/theme/images/apple-touch-icon-144x144.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="/theme/images/apple-touch-icon-152x152.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="/theme/images/apple-touch-icon-180x180.png" type="image/png" />
+        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="CMCai&#39;s Blogs - Full Atom Feed" />
+
+
+    </head>
+    <body>
+        <div id="content">
+            <div class="navbar navbar-static-top">
+                <div class="navbar-inner">
+                    <div class="container-fluid">
+                        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </a>
+                        <a class="brand" href="/"><span class=site-name>CMCai's Blogs</span></a>
+                        <div class="nav-collapse collapse">
+                            <ul class="nav pull-right top-menu">
+                                <li >
+                                    <a href=
+                                       "/"
+                                    >Home</a>
+                                </li>
+                                <li ><a href="/categories">Categories</a></li>
+                                <li ><a href="/tags">Tags</a></li>
+                                <li ><a href="/archives">Archives</a></li>
+                                <li><form class="navbar-search" action="/search" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span1"></div>
+                    <div class="span10">
+<article itemscope>
+<div class="row-fluid">
+    <header class="page-header span10 offset2">
+        <h1>
+            <a href="/blogstruct">
+                使用pelican在GitHub搭建个人Jupyter&nbsp;Notebook和Markdown微博
+            </a>
+        </h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+        <div class="span8 offset2 article-content">
+            
+            <p>环境：Mac</p>
+<p>1、创建文件夹 MyBlog&nbsp;并进入文件夹</p>
+<div class="highlight"><pre><span></span><code><span class="err">mkdir MyBlog</span>
+<span class="err">cd MyBlog</span>
+</code></pre></div>
+
+
+<p>2、创建并激活虚拟环境</p>
+<div class="highlight"><pre><span></span><code><span class="err">virtualenv blogs</span>
+<span class="err">. blogs/bin/activate</span>
+</code></pre></div>
+
+
+<p>3、创建 .gitignore的文件，并添加入<a href="https://github.com/github/gitignore/blob/master/Python.gitignore">以下内容</a>。最终将会把文件提交到git,&nbsp;.gitignore将会排除指定类型的文件。</p>
+<p>4、使用pip安装 Markdown、pelican、jupyter、ipython、nbconvert、beautifulsoup4、ghp-import、matplotlib。&nbsp;例如： </p>
+<div class="highlight"><pre><span></span><code><span class="err">pip install Markdown</span>
+</code></pre></div>
+
+
+<p>5、执行pelican-quickstart进行互动式安装：</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">blogs</span><span class="p">)</span><span class="w"> </span><span class="o">*****</span><span class="err">:</span><span class="n">MyBlog</span><span class="w"> </span><span class="o">***</span><span class="err">$</span><span class="w"> </span><span class="n">pelican</span><span class="o">-</span><span class="n">quickstart</span><span class="w"> </span>
+<span class="n">Welcome</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">pelican</span><span class="o">-</span><span class="n">quickstart</span><span class="w"> </span><span class="n">v3</span><span class="mf">.7.1</span><span class="p">.</span><span class="w"></span>
+
+<span class="n">This</span><span class="w"> </span><span class="n">script</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">help</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Pelican</span><span class="o">-</span><span class="n">based</span><span class="w"> </span><span class="n">website</span><span class="p">.</span><span class="w"></span>
+
+<span class="n">Please</span><span class="w"> </span><span class="n">answer</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">questions</span><span class="w"> </span><span class="n">so</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">script</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">generate</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="n">needed</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">Pelican</span><span class="p">.</span><span class="w"></span>
+
+<span class="o">&gt;</span><span class="w"> </span><span class="k">Where</span><span class="w"> </span><span class="n">do</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">web</span><span class="w"> </span><span class="n">site</span><span class="vm">?</span><span class="w"> </span><span class="o">[</span><span class="n">.</span><span class="o">]</span><span class="w"> </span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">What</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">title</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">web</span><span class="w"> </span><span class="n">site</span><span class="vm">?</span><span class="w"> </span><span class="n">CMCai</span><span class="err">&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">Blog</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">Who</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">author</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">web</span><span class="w"> </span><span class="n">site</span><span class="vm">?</span><span class="w"> </span><span class="n">CaiChunming</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">What</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="k">language</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">web</span><span class="w"> </span><span class="n">site</span><span class="vm">?</span><span class="w"> </span><span class="o">[</span><span class="n">zh</span><span class="o">]</span><span class="w"> </span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">Do</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">specify</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">URL</span><span class="w"> </span><span class="k">prefix</span><span class="vm">?</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">g</span><span class="p">.,</span><span class="w"> </span><span class="nl">http</span><span class="p">:</span><span class="o">//</span><span class="n">example</span><span class="p">.</span><span class="n">com</span><span class="w">   </span><span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="n">n</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">Do</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">enable</span><span class="w"> </span><span class="n">article</span><span class="w"> </span><span class="n">pagination</span><span class="vm">?</span><span class="w"> </span><span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">n</span><span class="p">)</span><span class="w"> </span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">How</span><span class="w"> </span><span class="n">many</span><span class="w"> </span><span class="n">articles</span><span class="w"> </span><span class="n">per</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="n">do</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="vm">?</span><span class="w"> </span><span class="o">[</span><span class="n">10</span><span class="o">]</span><span class="w"> </span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">What</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="nc">time</span><span class="w"> </span><span class="k">zone</span><span class="vm">?</span><span class="w"> </span><span class="o">[</span><span class="n">Europe/Paris</span><span class="o">]</span><span class="w"> </span><span class="n">Asia</span><span class="o">/</span><span class="n">Shanghai</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">Do</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">generate</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">Fabfile</span><span class="o">/</span><span class="n">Makefile</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">automate</span><span class="w"> </span><span class="n">generation</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">publishing</span><span class="vm">?</span><span class="w"> </span><span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">n</span><span class="p">)</span><span class="w"> </span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">Do</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">auto</span><span class="o">-</span><span class="n">reload</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">simpleHTTP</span><span class="w"> </span><span class="n">script</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">assist</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">theme</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">site</span><span class="w"> </span><span class="n">development</span><span class="vm">?</span><span class="w"> </span><span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">n</span><span class="p">)</span><span class="w"> </span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">Do</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">upload</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">website</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="n">FTP</span><span class="vm">?</span><span class="w"> </span><span class="p">(</span><span class="n">y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="w"> </span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">Do</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">upload</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">website</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="n">SSH</span><span class="vm">?</span><span class="w"> </span><span class="p">(</span><span class="n">y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="w"> </span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">Do</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">upload</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">website</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="n">Dropbox</span><span class="vm">?</span><span class="w"> </span><span class="p">(</span><span class="n">y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="w"> </span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">Do</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">upload</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">website</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="n">S3</span><span class="vm">?</span><span class="w"> </span><span class="p">(</span><span class="n">y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="w"> </span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">Do</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">upload</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">website</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="n">Rackspace</span><span class="w"> </span><span class="n">Cloud</span><span class="w"> </span><span class="n">Files</span><span class="vm">?</span><span class="w"> </span><span class="p">(</span><span class="n">y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="w"> </span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">Do</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">upload</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">website</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="n">GitHub</span><span class="w"> </span><span class="n">Pages</span><span class="vm">?</span><span class="w"> </span><span class="p">(</span><span class="n">y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="n">y</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="k">Is</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">personal</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="p">(</span><span class="n">username</span><span class="p">.</span><span class="n">github</span><span class="p">.</span><span class="n">io</span><span class="p">)</span><span class="vm">?</span><span class="w"> </span><span class="p">(</span><span class="n">y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="n">y</span><span class="w"></span>
+<span class="n">Done</span><span class="p">.</span><span class="w"> </span><span class="n">Your</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">project</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="k">at</span><span class="w"> </span><span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">iMac</span><span class="o">/</span><span class="n">MyBlog</span><span class="w"></span>
+</code></pre></div>
+
+
+<p>注：上面内容以后可以在pelicanconf.py中修改。</p>
+<p>6、安装Jupyter插件：终端切换到&nbsp;MyBlog</p>
+<div class="highlight"><pre><span></span><code><span class="err">git init</span>
+<span class="err">git clone --recursive https://github.com/getpelican/pelican-plugins #(克隆pelican-plugins是为了后面模版中的一些插件，如果不需要，可以不克隆)</span>
+<span class="err">git submodule add git://github.com/danielfrg/pelican-ipynb.git pelican-plugins/ipynb</span>
+</code></pre></div>
+
+
+<p>7、设置启动插件：&nbsp;在pelicanconf.py文件的末尾加上：</p>
+<div class="highlight"><pre><span></span><code><span class="err">MARKUP = (&#39;md&#39;, &#39;ipynb&#39;)</span>
+<span class="err">PLUGIN_PATHS = [ &#39;./pelican-plugins&#39; ]  </span>
+<span class="err">PLUGINS = [&#39;ipynb.markup&#39;]</span>
+</code></pre></div>
+
+
+<p>8、写一篇测试博客：
+（1）、通过jupyter notebook写一篇博客，<a href="https://github.com/dataquestio/jupyter-blog/blob/master/content/first-post.ipynb">例如</a>
+（2）、把.ipynb 文件放入MyBlog/content 文件夹下
+（3）、新建一个同名文件，扩展名为&nbsp;.nbdata。同时输入下面内容</p>
+<div class="highlight"><pre><span></span><code><span class="n">Title</span><span class="o">:</span> <span class="n">First</span> <span class="n">Post</span>  <span class="err">#文章的题目</span>
+<span class="n">Slug</span><span class="o">:</span> <span class="n">first</span><span class="o">-</span><span class="n">post</span>   <span class="err">#文章的访问路径</span>
+<span class="n">Date</span><span class="o">:</span> <span class="mi">2016</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">08</span> <span class="mi">20</span><span class="o">:</span><span class="mi">00</span> <span class="err">#发布时间</span>
+<span class="n">Category</span><span class="o">:</span> <span class="n">posts</span> <span class="err">#文章所属目录</span>
+<span class="n">Tags</span><span class="o">:</span> <span class="n">python</span> <span class="n">firsts</span> <span class="err">#标签</span>
+<span class="n">Author</span><span class="o">:</span> <span class="n">Vik</span> <span class="n">Paruchuri</span> <span class="err">#作者</span>
+<span class="n">Summary</span><span class="o">:</span> <span class="n">My</span> <span class="n">first</span> <span class="n">post</span><span class="o">,</span> <span class="n">read</span> <span class="n">it</span> <span class="n">to</span> <span class="n">find</span> <span class="n">out</span><span class="o">.</span> <span class="err">#文章简单概述</span>
+</code></pre></div>
+
+
+<p>也可以创建一个Markdown文件，写好blog内容。在Markdown文件开头加入文档的头信息（也就是上面 .nbdata&nbsp;的内容）。把书写完成的Markdown文件复制到content目录下。</p>
+<p>9、修改模版，这里选用 pelican-elegant&nbsp;（1）、克隆主题（克隆下来的文件夹很多是空的，最好确认下，没有就手动下载）</p>
+<div class="highlight"><pre><span></span><code><span class="err">git clone https://github.com/getpelican/pelican-themes.git</span>
+</code></pre></div>
+
+
+<p>（2）、切换到pelican-themes下，&nbsp;并启用模版</p>
+<div class="highlight"><pre><span></span><code><span class="err">cd pelican-themes</span>
+<span class="err">pelican-themes -i pelican-elegant</span>
+</code></pre></div>
+
+
+<p>（4）、切换回MyBlog，修改 pelicanconf.py&nbsp;，添加：</p>
+<div class="highlight"><pre><span></span><code><span class="err">THEME = &#39;./pelican-themes/pelican-elegant&#39;</span>
+</code></pre></div>
+
+
+<p>再添加：</p>
+<div class="highlight"><pre><span></span><code><span class="err">PLUGINS = [ &#39;extract_toc&#39;, &#39;tipue_search&#39;]</span>
+<span class="err">DIRECT_TEMPLATES = ((&#39;index&#39;, &#39;tags&#39;, &#39;categories&#39;,&#39;archives&#39;, &#39;search&#39;, &#39;404&#39;))</span>
+<span class="err">STATIC_PATHS = [&#39;theme/images&#39;, &#39;images&#39;] #图片放在content/theme/images</span>
+<span class="err">TAG_SAVE_AS = &#39;&#39;</span>
+<span class="err">CATEGORY_SAVE_AS = &#39;&#39;</span>
+<span class="err">AUTHOR_SAVE_AS = &#39;&#39;</span>
+</code></pre></div>
+
+
+<p>也可添加：</p>
+<div class="highlight"><pre><span></span><code><span class="err">RECENT_ARTICLES_COUNT (integer)  # recent文章数量</span>
+<span class="err">COMMENTS_INTRO (&#39;string&#39;) #邀请评论的内容</span>
+<span class="err">SITE_LICENSE (&#39;string&#39;) #网站license</span>
+<span class="err">SITE_DESCRIPTION (&#39;string&#39;) #网站的description</span>
+<span class="err">EMAIL_SUBSCRIPTION_LABEL (&#39;string&#39;) #邮件订阅label</span>
+<span class="err">EMAIL_FIELD_PLACEHOLDER (&#39;string&#39;) #邮件订阅</span>
+<span class="err">SUBSCRIBE_BUTTON_TITLE (&#39;string&#39;) #邮件订阅</span>
+<span class="err">MAILCHIMP_FORM_ACTION (&#39;string&#39;) #邮件订阅</span>
+<span class="err">SITESUBTITLE (&#39;string&#39;) #次标题</span>
+<span class="err">LANDING_PAGE_ABOUT ({}) #主页title和details</span>
+<span class="err">PROJECTS ([{},...]) #projects内容</span>
+</code></pre></div>
+
+
+<p>在 .nbdata&nbsp;可以添加：</p>
+<div class="highlight"><pre><span></span><code><span class="err">subtitle</span>
+<span class="err">summary</span>
+<span class="err">disqus_identifier</span>
+<span class="err">modified</span>
+<span class="err">keywords</span>
+</code></pre></div>
+
+
+<p>10、生成html
+（1）、运行pelican content生成HTML
+（2）、切换到output文件夹
+（3）、运行python -m pelican.server&nbsp;（4）、打开浏览器访问localhost:8000进行预览</p>
+<p>11、创建GitHub pages
+（1）、创建一个GitHub仓库，名称为username.github.io, username是GitHub名称。可以输入describe，选择public，其他不用选。
+（2）、切换到jupyter-blog目录&nbsp;（3）、运行</p>
+<div class="highlight"><pre><span></span><code><span class="err">git remote add origin git@github.com:username/username.github.io.git</span>
+</code></pre></div>
+
+
+<p>来为你的本地GitHub仓库添加一个远程仓库。username替换为GitHub用户名。
+（4）、修改pelicanconf.py中的SITEURL,&nbsp;将它设置为</p>
+<div class="highlight"><pre><span></span><code><span class="c">https://username.github.io， username是GitHub用户名。</span>
+</code></pre></div>
+
+
+<p>（5）、运行</p>
+<div class="highlight"><pre><span></span><code><span class="err">pelican content -s publishconf.py。</span>
+</code></pre></div>
+
+
+<p>12、部署到GitHub Pages
+（1）、需要将博客内容推送到GitHub pages的master分支来使之正常工作。现在，HTML内容已经在output文件夹中，不过我们需要它是仓库的根目录，而不是一个子目录。&nbsp;（2）、运行</p>
+<div class="highlight"><pre><span></span><code><span class="n">ghp</span><span class="o">-</span><span class="kn">import</span> <span class="nn">output</span> <span class="o">-</span><span class="n">b</span> <span class="n">master</span>
+</code></pre></div>
+
+
+<p>将output中的所有内容导入到master分支。&nbsp;（3）、运行</p>
+<div class="highlight"><pre><span></span><code><span class="err">git push origin master</span>
+</code></pre></div>
+
+
+<p>将内容推送到GitHub。任何时候当你的博客内容有所改变时，重新运行上面的 pelican content -s publishconf.py, ghp-import和git push命令，你的GitHub&nbsp;page就会得到更新。</p>
+<p>13、尝试访问username.github.io –&nbsp;你应该看到你的博客了！</p>
+
+
+             
+ 
+            
+            
+            
+
+
+
+
+
+
+
+            <hr/>
+        </div>
+        <section id="article-sidebar" class="span2">
+            <h4>Published</h4>
+            <time itemprop="dateCreated" datetime="2018-10-08T00:00:00+08:00">一 08 十月 2018</time>
+            <h4>Category</h4>
+            <a class="category-link" href="/categories#others-ref">others</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="/tags#pelicanpythonblogs-ref">pelican，python，blogs
+                    <span class="superscript">1</span>
+</a></li>
+            </ul>
+<h4>Stay in Touch</h4>
+<div id="sidebar-social-link">
+    <a href="https://twitter.com/CaiChunming0104" title="CMCai's Twitter" target="_blank" rel="nofollow noopener noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" aria-label="Twitter" role="img" viewBox="0 0 512 512"><rect width="512" height="512" rx="15%" fill="#1da1f3"/><path fill="#fff" d="M437 152a72 72 0 0 1-40 12 72 72 0 0 0 32-40 72 72 0 0 1-45 17 72 72 0 0 0-122 65 200 200 0 0 1-145-74 72 72 0 0 0 22 94 72 72 0 0 1-32-7 72 72 0 0 0 56 69 72 72 0 0 1-32 1 72 72 0 0 0 67 50 200 200 0 0 1-105 29 200 200 0 0 0 309-179 200 200 0 0 0 35-37"/></svg>
+    </a>
+    <a href="https://github.com/cmcai0104" title="CMCai's Github" target="_blank" rel="nofollow noopener noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" aria-label="GitHub" role="img" viewBox="0 0 512 512"><rect width="512" height="512" rx="15%" fill="#1B1817"/><path fill="#fff" d="M335 499c14 0 12 17 12 17H165s-2-17 12-17c13 0 16-6 16-12l-1-50c-71 16-86-28-86-28-12-30-28-37-28-37-24-16 1-16 1-16 26 2 40 26 40 26 22 39 59 28 74 22 2-17 9-28 16-35-57-6-116-28-116-126 0-28 10-51 26-69-3-6-11-32 3-67 0 0 21-7 70 26 42-12 86-12 128 0 49-33 70-26 70-26 14 35 6 61 3 67 16 18 26 41 26 69 0 98-60 120-117 126 10 8 18 24 18 48l-1 70c0 6 3 12 16 12z"/></svg>
+    </a>
+    <a href="mailto:mailto:hzxsccm678335@163.com" title="CMCai's Email" target="_blank" rel="nofollow noopener noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" aria-label="Mail" role="img" viewBox="0 0 512 512"><rect width="512" height="512" rx="15%" fill="#328cff"/><path d="m250 186c-46 0-69 35-69 74 0 44 29 72 68 72 43 0 73-32 73-75 0-44-34-71-72-71zm-1-37c30 0 57 13 77 33 0-22 35-22 35 1v150c-1 10 10 16 16 9 25-25 54-128-14-187-64-56-149-47-195-15-48 33-79 107-49 175 33 76 126 99 182 76 28-12 41 26 12 39-45 19-168 17-225-82-38-68-36-185 67-248 78-46 182-33 244 32 66 69 62 197-2 246-28 23-71 1-71-32v-11c-20 20-47 32-77 32-57 0-108-51-108-108 0-58 51-110 108-110" fill="#fff"/></svg>
+    </a>
+</div>
+            
+
+
+
+
+
+            
+
+
+
+        </section>
+</div>
+</article>
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides.
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                    </div>
+                    <div class="span1"></div>
+                </div>
+            </div>
+        </div>
+<footer>
+    <div>
+        Content licensed under <a rel="license nofollow noopener noreferrer"
+    href="http://creativecommons.org/licenses/by/4.0/" target="_blank">
+    Creative Commons Attribution 4.0 International License</a>.
+    </div>
+
+    <div>
+        <span class="site-name">CMCai's Blogs</span> - The Best Pelican Theme
+    </div>
+
+
+
+    <div id="fpowered">
+        Powered by: <a href="http://getpelican.com/" title="Pelican Home Page" target="_blank" rel="nofollow noopener noreferrer">Pelican</a>
+        Theme: <a href="https://elegant.oncrashreboot.com/" title="Theme Elegant Home Page" target="_blank" rel="nofollow noopener noreferrer">Elegant</a>
+        Hosted on:
+        <a href=https://www.netlify.com/ target="_blank" rel="nofollow noopener noreferrer">
+            Netlify
+        </a>
+    </div>
+</footer>            <script src="//code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script src="/theme/js/elegant.prod.9e9d5ce754.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+    <script>
+    (function () {
+        if (window.location.hash.match(/^#comment-\d+$/)) {
+            $('#comment_thread').collapse('show');
+        }
+    })();
+    window.onhashchange=function(){
+        if (window.location.hash.match(/^#comment-\d+$/))
+            window.location.reload(true);
+    }
+    $('#comment_thread').on('shown', function () {
+        var link = document.getElementById('comment-accordion-toggle');
+        var old_innerHTML = link.innerHTML;
+        $(link).fadeOut(200, function() {
+            $(this).text('Click here to hide comments').fadeIn(200);
+        });
+        $('#comment_thread').on('hidden', function () {
+            $(link).fadeOut(200, function() {
+                $(this).text(old_innerHTML).fadeIn(200);
+            });
+        })
+    })
+</script>
+
+    </body>
+    <!-- Theme: Elegant built for Pelican
+        License : MIT -->
+</html>

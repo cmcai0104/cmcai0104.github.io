@@ -5266,4 +5266,4 @@ h6:hover .anchor-link {
 
 
 &lt;p&gt;将内容推送到GitHub。任何时候当你的博客内容有所改变时，重新运行上面的 pelican content -s publishconf.py, ghp-import和git push命令，你的GitHub&amp;nbsp;page就会得到更新。&lt;/p&gt;
-&lt;p&gt;13、尝试访问username.github.io –&amp;nbsp;你应该看到你的博客了！&lt;/p&gt;</content><category term="others"></category><category term="pelican，python，blogs"></category></entry></feed>
+&lt;p&gt;13、尝试访问username.github.io –&amp;nbsp;你应该看到你的博客了！&lt;/p&gt;</content><category term="others"></category><category term="pelican，python，Blogs"></category></entry></feed>

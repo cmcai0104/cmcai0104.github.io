@@ -1,0 +1,9 @@
+Title: k近邻法（knn）及kd树
+Slug: knn-kdtree
+Date: 2018-11-08
+Category: machine learning
+Tags: python, machine learning
+Author: C.M. Cai
+subtitle: knn and kd-tree
+keywords: knn, kd-tree, machine learning
+Summary: k近邻法的基本思想以及python实现方法，包括kd树的构建和搜索。

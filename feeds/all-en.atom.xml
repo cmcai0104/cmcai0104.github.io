@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>菜地</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2018-12-01T00:00:00+08:00</updated><subtitle>Welcome to C.M. Cai's Blogs</subtitle><entry><title>Kaufman’s Adaptive Moving Average</title><link href="/KAMA" rel="alternate"></link><published>2018-12-01T00:00:00+08:00</published><updated>2018-12-01T00:00:00+08:00</updated><author><name>C.M. Cai</name></author><id>tag:None,2018-12-01:/KAMA</id><summary type="html">&lt;p&gt;卡夫曼自适应均线的python实现。&lt;/p&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
+<feed xmlns="http://www.w3.org/2005/Atom"><title>菜地</title><link href="/" rel="alternate"></link><link href="/feeds/all-en.atom.xml" rel="self"></link><id>/</id><updated>2018-12-01T00:00:00+08:00</updated><subtitle>Welcome to C.M. Cai's Blogs</subtitle><entry><title>Kaufman’s Adaptive Moving Average</title><link href="/KAMA" rel="alternate"></link><published>2018-12-01T00:00:00+08:00</published><updated>2018-12-01T00:00:00+08:00</updated><author><name>C.M. Cai</name></author><id>tag:None,2018-12-01:/KAMA</id><summary type="html">&lt;p&gt;卡夫曼自适应均线的python实现。&lt;/p&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *

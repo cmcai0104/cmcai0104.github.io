@@ -4,49 +4,70 @@ xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitem
 xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
-<loc>https://cmcai0104.github.io/</loc>
-<lastmod>2020-06-24T12:24:20-00:00</lastmod>
+<loc>/</loc>
+<lastmod>2020-07-01T09:38:53-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://cmcai0104.github.io/tags</loc>
-<lastmod>2020-06-24T12:24:20-00:00</lastmod>
+<loc>/tags</loc>
+<lastmod>2020-07-01T09:38:53-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://cmcai0104.github.io/categories</loc>
-<lastmod>2020-06-24T12:24:20-00:00</lastmod>
+<loc>/categories</loc>
+<lastmod>2020-07-01T09:38:53-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://cmcai0104.github.io/archives</loc>
-<lastmod>2020-06-24T12:24:20-00:00</lastmod>
+<loc>/archives</loc>
+<lastmod>2020-07-01T09:38:53-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://cmcai0104.github.io/search</loc>
-<lastmod>2020-06-24T12:24:20-00:00</lastmod>
+<loc>/search</loc>
+<lastmod>2020-07-01T09:38:53-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://cmcai0104.github.io/404.html</loc>
-<lastmod>2020-06-24T12:24:20-00:00</lastmod>
+<loc>/404.html</loc>
+<lastmod>2020-07-01T09:38:53-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://cmcai0104.github.io/blogstruct</loc>
+<loc>/KAMA</loc>
+<lastmod>2018-12-01T00:00:00+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>/Navie Bayes</loc>
+<lastmod>2018-11-20T00:00:00+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>/knn-kdtree</loc>
+<lastmod>2018-11-08T00:00:00+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>/blogstruct</loc>
 <lastmod>2018-10-08T00:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
